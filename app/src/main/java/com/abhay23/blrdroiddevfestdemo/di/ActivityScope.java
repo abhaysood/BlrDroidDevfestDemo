@@ -1,4 +1,4 @@
-package com.abhay23.blrdroiddevfestdemo;
+package com.abhay23.blrdroiddevfestdemo.di;
 
 import java.lang.annotation.Retention;
 import java.lang.annotation.RetentionPolicy;

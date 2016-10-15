@@ -1,7 +1,7 @@
 package com.abhay23.blrdroiddevfestdemo.di.contacts_list;
 
 import android.support.v7.widget.LinearLayoutManager;
-import com.abhay23.blrdroiddevfestdemo.ActivityScope;
+import com.abhay23.blrdroiddevfestdemo.di.ActivityScope;
 import com.abhay23.blrdroiddevfestdemo.contacts_list.ContactsActivity;
 import com.abhay23.blrdroiddevfestdemo.contacts_list.ContactsAdapter;
 import com.abhay23.blrdroiddevfestdemo.contacts_list.ContactsPresenter;
