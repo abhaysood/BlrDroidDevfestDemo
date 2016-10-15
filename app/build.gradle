@@ -1,0 +1,91 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.neenbedankt.android-apt'
+apply plugin: 'me.tatarka.retrolambda'
+
+android {
+    compileSdkVersion 24
+    buildToolsVersion "24.0.2"
+    defaultConfig {
+        applicationId "com.abhay23.blrdroiddevfestdemo"
+        minSdkVersion 16
+        targetSdkVersion 24
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner 'com.abhay23.demoapp.ContactsAppTestRunner'
+    }
+    buildTypes {
+        release {
+            minifyEnabled false
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+    }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+}
+
+
+dependencies {
+    compile fileTree(dir: 'libs', include: ['*.jar'])
+
+    compile 'com.android.support:appcompat-v7:24.2.1'
+    compile 'com.android.support:recyclerview-v7:24.2.1'
+    compile 'com.android.support:design:24.2.1'
+    compile 'com.simplecityapps:recyclerview-fastscroll:1.0.11'
+
+    compile 'com.github.bumptech.glide:glide:3.7.0'
+    compile 'de.hdodenhof:circleimageview:2.1.0'
+
+    apt 'com.google.dagger:dagger-compiler:2.5'
+    compile 'com.google.dagger:dagger:2.5'
+    provided 'javax.annotation:jsr250-api:1.0'
+
+    compile 'com.squareup.okhttp3:okhttp:3.4.1'
+    compile "com.squareup.okhttp3:logging-interceptor:3.4.1"
+    compile "com.squareup.retrofit2:retrofit:2.1.0"
+    compile "com.squareup.retrofit2:converter-gson:2.1.0"
+    compile "com.squareup.retrofit2:adapter-rxjava:2.1.0"
+
+    compile 'io.reactivex:rxandroid:1.2.1'
+    compile 'com.jakewharton.rxbinding:rxbinding:0.4.0'
+    compile 'io.reactivex:rxjava:1.1.9'
+
+    compile "com.jakewharton:butterknife:7.0.1"
+
+    // Dependencies to resolve test app conflicts. See http://g.co/androidstudio/app-test-app-conflict for details.
+    androidTestCompile "com.android.support:support-v4:24.2.1"
+    androidTestCompile "com.android.support:appcompat-v7:24.2.1"
+    androidTestCompile "com.android.support:design:24.2.1"
+
+    // Mockito for UI tests.
+    androidTestCompile "com.google.dexmaker:dexmaker:1.2"
+    androidTestCompile "com.google.dexmaker:dexmaker-mockito:1.2"
+    androidTestCompile "org.mockito:mockito-core:1.10.19"
+
+    // APT for UI tests.
+    androidTestApt "com.google.dagger:dagger-compiler:2.5"
+
+    compile "com.android.support.test.espresso:espresso-idling-resource:2.2.2"
+
+    // Dependencies for local unit tests
+    testCompile "junit:junit:4.12"
+    testCompile "org.mockito:mockito-all:1.10.19"
+    testCompile "org.hamcrest:hamcrest-all:1.3"
+    testCompile "org.powermock:powermock-module-junit4:1.6.2"
+    testCompile "org.powermock:powermock-api-mockito:1.6.2"
+    testCompile "org.powermock:powermock-core:1.6.2"
+
+    // Android Testing Support Library's runner and rules
+    androidTestCompile "com.android.support.test:runner:0.5"
+    androidTestCompile "com.android.support.test:rules:0.5"
+
+    // Espresso UI Testing dependencies.
+    androidTestCompile "com.android.support.test.espresso:espresso-core:2.2.2"
+    androidTestCompile "com.android.support.test.espresso:espresso-intents:2.2.2"
+    androidTestCompile("com.android.support.test.espresso:espresso-contrib:2.2.2") {
+        exclude group: 'com.android.support', module: 'appcompat'
+        exclude group: 'com.android.support', module: 'support-v4'
+        exclude module: 'recyclerview-v7'
+    }
+}
